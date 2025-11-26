@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INet Квиз — Избери го твојот идеален лаптоп</title>
+    <meta name="description" content="Одговори на прашања и добиј препорака од INet експерт." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Tag Manager --><script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WC6S5RZV');
+    </script>
+    <!-- End Google Tag Manager --><!-- Meta Pixel Code --><script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4558619690906145');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code --><style>
+        /* Base Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937; /* Dark text */
+            margin: 0;
+            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 50%, #c1dfeb 100%); /* Subtle blue gradient background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Accent Colors */
+        .accent-blue { color: #007bff; } /* Primary Blue */
+        .accent-green { color: #28a745; } /* Secondary Green */
+        .bg-accent-blue { background-color: #007bff; }
+        .bg-accent-green { background-color: #28a745; }
+        .border-accent-blue { border-color: #007bff; }
+        .hover\:bg-blue-700:hover { background-color: #0056b3; } /* Darker blue on hover */
+
+        /* Liquid Glass Card and Panel Styling */
+        .quiz-panel {
+            background: rgba(255, 255, 255, 0.7); /* Translucent white */
+            backdrop-filter: blur(10px); /* Glass blur effect */
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05); /* Softer, layered shadow */
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        /* Option Button Styling - Liquid Glass */
+        .option-card {
+            transition: all 0.3s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.6); /* Slightly more opaque for options */
+            border-radius: 12px; /* Rounded corners for options */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .option-card:hover {
+            transform: translateY(-3px) scale(1.01); /* Subtle lift and scale */
+            border-color: rgba(0, 123, 255, 0.6); /* Blueish border on hover */
+            background: rgba(230, 240, 255, 0.8); /* Light blue background on hover */
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.15); /* More prominent blue shadow */
+        }
+        .option-card.selected {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.1); /* Very light blue for selected */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+        }
+        .option-card.selected .icon-box {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .icon-box {
+            transition: all 0.2s ease-out;
+            background: rgba(229, 231, 235, 0.8); /* Slightly translucent gray */
+            color: #4b5563;
+            border-radius: 50%; /* Ensure roundness */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Input Styling - Liquid Glass */
+        .input-field {
+            border: 1px solid rgba(209, 213, 219, 0.6);
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25), inset 0 1px 3px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Progress Bar */
+        .progress-bar-fill {
+            transition: width 0.6s ease-out;
+            background: linear-gradient(to right, #28a745, #007bff);
+            border-radius: 9999px; /* Full rounded corners */
+        }
+        #progress-container {
+            background: rgba(229, 231, 235, 0.5); /* Lighter, translucent background for bar */
+            border-radius: 9999px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Disabled Button Style (for next/submit) */
+        .btn-disabled {
+            background-color: rgba(209, 213, 219, 0.6) !important; /* Translucent gray-300 */
+            color: #9ca3af !important; /* Tailwind gray-400 */
+            cursor: not-allowed !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important; /* Inset shadow for disabled */
+            transform: none !important;
+        }
+
+        /* Button base style for liquid effect */
+        .quiz-button {
+            border-radius: 12px;
+            background: #007bff;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.25);
+            border: none;
+        }
+        .quiz-button:hover:not(.btn-disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
+        }
+
+        .cta-button-accent {
+            background: linear-gradient(45deg, #007bff, #28a745); /* Blue to Green Gradient */
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+        }
+        .cta-button-accent:hover:not(.btn-disabled) {
+            background: linear-gradient(45deg, #0056b3, #1e7e34); /* Darker gradient on hover */
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Thank you screen elements */
+        #confirmation-screen .bg-green-50 {
+            background: rgba(40, 167, 69, 0.1); /* Translucent green */
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.1);
+        }
+        #confirmation-screen .text-left > div {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) --><noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC6S5RZV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- Meta Pixel (noscript) --><noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=4558619690906145&ev=PageView&noscript=1" />
+    </noscript>
+
+    <main id="app" class="relative z-10 w-full max-w-2xl mx-auto">
+        <div class="quiz-panel">
+            
+            <!-- Header with Centered Logo --><header class="p-6 md:p-8 flex items-center justify-center relative border-b border-gray-100/50 z-20">
+                <!-- INet Logo PNG --><div class="flex items-center">
+                    <img src="https://i.postimg.cc/rsCJg2js/inet-liogo.png" alt="INet Logo" class="h-6 md:h-7">
+                </div>
+            </header>
+
+            <div id="content-area" class="flex-1 p-6 md:p-10 flex flex-col justify-center relative">
+                
+                <!-- START SCREEN --><div id="start-screen" class="text-center flex flex-col items-center justify-center h-full fade-in absolute inset-0 z-10 p-6">
+                    <div class="mb-6">
+                        <i class="fa-solid fa-graduation-cap text-6xl md:text-7xl accent-blue"></i>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight leading-tight text-gray-800">
+                        Најди го идеаниот лаптоп за <span class="accent-blue">Факултет</span>!
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+                        Одговори на 6 брзи прашања за да добиеш лична препорака од нашите IT советници.
+                    </p>
+                    
+                    <button onclick="quizApp.start()" class="quiz-button cta-button-accent px-10 py-4 text-lg tracking-wide">
+                        ПОЧНИ КВИЗ
+                        <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                </div>
+
+                <!-- QUESTION SCREEN --><div id="question-screen" class="hidden h-full flex-col justify-center relative z-10">
+                    <div class="mb-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span id="question-number" class="accent-blue text-sm font-bold border border-accent-blue px-2 py-0.5 rounded-full">1/6</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Чекор</span>
+                        </div>
+                        <h2 id="question-text" class="text-2xl md:text-3xl font-bold text-gray-800 leading-snug"></h2>
+                        <p id="selection-info" class="text-sm text-gray-500 mt-2 hidden"></p>
+                    </div>
+
+                    <!-- Progress Bar --><div id="progress-container" class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-8">
+                        <div id="progress-bar" class="h-full w-0 progress-bar-fill"></div>
+                    </div>
+
+                    <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Options injected by JS --></div>
+                    
+                    <button id="next-btn" onclick="quizApp.nextQuestion()" class="quiz-button mt-8 py-3 text-white font-bold uppercase tracking-wider btn-disabled">
+                        Следно <i class="fa-solid fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- LEAD / CONTACT FORM SCREEN --><div id="lead-form-screen" class="hidden h-full flex flex-col justify-center fade-in w-full p-2">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-2">Ќе ви го препорачаме идеалениот избор за тебе!</h2>
+                    <p class="text-gray-600 text-center text-lg mb-8">Остави контакт и ќе ти пратиме 1–3 лаптоп модели што најмногу ти одговараат.</p>
+                    
+                    <div class="w-full max-w-md mx-auto bg-gray-50/70 p-6 rounded-xl border border-gray-100/50 shadow-lg backdrop-blur-sm">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="contact_name" class="block text-sm font-medium text-gray-700 mb-1">Име и Презиме</label>
+                                <input type="text" id="contact_name" class="input-field w-full p-3 rounded-lg" placeholder="Петар Петровски">
+                            </div>
+                            <div>
+                                <label for="contact_phone" class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
+                                <input type="tel" id="contact_phone" class="input-field w-full p-3 rounded-lg" placeholder="+389 7X XXX XXX (пр. +38970123456)">
+                            </div>
+                            <div>
+                                <label for="contact_email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="contact_email" class="input-field w-full p-3 rounded-lg" placeholder="petar@example.com">
+                            </div>
+                            <div>
+                                <label for="contact_faculty" class="block text-sm font-medium text-gray-700 mb-1">Факултет</label>
+                                <input type="text" id="contact_faculty" class="input-field w-full p-3 rounded-lg" placeholder="Правен факултет">
+                            </div>
+                            
+                            <label class="flex items-start gap-3 cursor-pointer group pt-2">
+                                <div class="relative flex items-center">
+                                    <input type="checkbox" id="q_consent" class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 bg-white transition-all checked:border-accent-blue checked:bg-accent-blue">
+                                    <svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity text-white" viewBox="0 0 14 14" fill="none">
+                                        <path d="M3 8L6 11L11 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-600 leading-tight group-hover:text-gray-800 transition-colors pt-0.5">
+                                    Се согласувам да бидам контактиран во врска со мојата препорака и понуди.
+                                </span>
+                            </label>
+
+                            <div id="form-error" class="hidden text-red-600 text-sm mt-2 font-medium bg-red-50/70 p-3 rounded border border-red-300 backdrop-blur-sm">
+                                <!-- Error message injected here --></div>
+
+                            <button id="submitBtn" onclick="quizApp.submitForm()" class="quiz-button cta-button-accent w-full mt-6 py-4">
+                                👉 ИЗБЕРИ МИ ЛАПТОП
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONFIRMATION SCREEN (THANK YOU PAGE) --><div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in absolute inset-0 z-30 p-6 text-center">
+                    <i class="fa-solid fa-check-circle accent-green text-7xl mb-6"></i>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800">Ти благодариме!</h2>
+                    
+                    <p class="text-gray-600 text-lg mb-8 max-w-lg mx-auto">
+                        Наш IT советник ќе ти се јави кратко и ќе ти препорача најдобра опција за твоите потреби, буџет и факултет.
+                    </p>
+                    <p class="text-gray-700 text-lg font-bold mb-8 max-w-lg mx-auto bg-green-50 p-4 rounded-lg border border-green-200">
+                        Ова е бесплатна услуга од INet.
+                    </p>
+
+                    <div class="text-left space-y-2 mt-4 max-w-xs w-full text-sm text-gray-700">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">27 години искуство</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">Овластен Lenovo партнер</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">Гаранција и сервис во Македонија</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Hidden Input for UTM --><input type="hidden" id="utm_source_input" value="">
+
+    <script>
+        // --- Data & Configuration ---
+        const questions = [
+            { id: "q1", title: "За што најчесто ќе го користиш лаптопот?", type: "single", answers: ["Факултет, Google Docs", "Филмови, музика, YouTube", "Дизајн, Photoshop, архитектура", "Програмирање", "Гејминг", "Малку од сè"] },
+            { id: "q2", title: "Колку често учиш/работиш на лаптоп?", type: "single", answers: ["Секој ден", "3–5 дена неделно", "Само кога имам испит/колоквиум", "Ретко"] },
+            { id: "q3", title: "Каде најчесто го користиш лаптопот?", type: "single", answers: ["Дома", "На факултет", "Во движење / кафичи", "Секаде го носам со мене"] },
+            { id: "q4", title: "Какви програми користиш?", type: "multi", answers: ["Word, Excel, PowerPoint", "Photoshop, Illustrator", "AutoCAD, Revit", "VS Code, Python, Java", "Premiere Pro, DaVinci", "Ништо тешко, само интернет"] },
+            { id: "q5", title: "Каква големина на екран ти одговара?", type: "single", answers: ["Мал и лесен (13–14”)", "Среден (15”)", "Голем екран (16–17”)"] },
+            { id: "q6", title: "Приближен буџет?", type: "single", answers: ["До 25.000 ден", "25.000–35.000 ден", "35.000–45.000 ден", "45.000+ ден", "Не сум сигурен, затоа го правам квизот"] }
+        ];
+
+        // Google Sheets target URL - UPDATED AS REQUESTED
+        const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxELxOipS56TMlcw77puJ1dS2r47D8fbBP3VUUy11HojsnIjPEMzTEpJDpEkbqN3hQvIw/exec";
+
+        // --- Logic Engine ---
+        const quizApp = {
+            currentStepIndex: 0,
+            results: {}, // Stores all question answers
+            
+            elements: {
+                startScreen: document.getElementById('start-screen'),
+                questionScreen: document.getElementById('question-screen'),
+                questionText: document.getElementById('question-text'),
+                questionNumber: document.getElementById('question-number'),
+                optionsGrid: document.getElementById('options-grid'),
+                progressBar: document.getElementById('progress-bar'),
+                progressContainer: document.getElementById('progress-container'),
+                nextBtn: document.getElementById('next-btn'),
+                selectionInfo: document.getElementById('selection-info'),
+                leadFormScreen: document.getElementById('lead-form-screen'),
+                confirmationScreen: document.getElementById('confirmation-screen'),
+                submitBtn: document.getElementById('submitBtn'),
+                formError: document.getElementById('form-error'),
+                // Form fields
+                contactName: document.getElementById('contact_name'),
+                contactPhone: document.getElementById('contact_phone'),
+                contactEmail: document.getElementById('contact_email'),
+                contactFaculty: document.getElementById('contact_faculty'),
+                consentCheckbox: document.getElementById('q_consent'),
+            },
+
+            // Utility function to show/hide screens
+            showScreen(screenId) {
+                // Hide all screens
+                Object.values(this.elements).forEach(el => {
+                    if (el && el.id && (el.id.endsWith('Screen') || el.id === 'start-screen' || el.id === 'question-screen')) {
+                        el.classList.add('hidden');
+                        el.classList.remove('fade-in', 'flex', 'flex-col');
+                    }
+                });
+                // Show target screen
+                const screen = this.elements[screenId];
+                if (screen) {
+                    screen.classList.remove('hidden');
+                    screen.classList.add('fade-in', 'flex', 'flex-col');
+                }
+            },
+
+            // Start the quiz
+            start() {
+                this.currentStepIndex = 0;
+                this.results = {}; // Clear previous results
+                this.showScreen('questionScreen');
+                this.renderQuestion();
+            },
+
+            // Render the current question and options
+            renderQuestion() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ) return;
+
+                this.elements.questionNumber.textContent = `${this.currentStepIndex + 1}/${questions.length}`;
+                this.elements.questionText.textContent = currentQ.title;
+
+                // Update progress bar (currentStepIndex is 0-based)
+                const progress = ((this.currentStepIndex) / questions.length) * 100;
+                this.elements.progressBar.style.width = `${progress}%`;
+
+                // Setup selection info for multi-select
+                if (currentQ.type === 'multi') {
+                    this.elements.selectionInfo.textContent = "(Можеш да избереш повеќе одговори)";
+                    this.elements.selectionInfo.classList.remove('hidden');
+                } else {
+                    this.elements.selectionInfo.classList.add('hidden');
+                }
+
+                this.elements.optionsGrid.innerHTML = '';
+                
+                // Initialize result for the current question if not already set
+                if (this.results[currentQ.id] === undefined) {
+                    this.results[currentQ.id] = currentQ.type === 'multi' ? [] : null;
+                }
+
+
+                currentQ.answers.forEach((answerText) => {
+                    const isSelected = (currentQ.type === 'multi' && this.results[currentQ.id].includes(answerText)) || 
+                                       (currentQ.type === 'single' && this.results[currentQ.id] === answerText);
+                    
+                    const iconBaseClass = currentQ.type === 'single' ? 'fa-circle' : 'fa-square';
+                    const iconSelectedClass = currentQ.type === 'single' ? 'fa-circle-dot' : 'fa-square-check';
+
+                    const selectedClass = isSelected ? 'selected' : '';
+                    const iconSolidOrRegular = isSelected ? 'fa-solid' : 'fa-regular';
+                    const iconTypeClass = isSelected ? iconSelectedClass : iconBaseClass;
+
+                    const card = document.createElement('div');
+                    card.className = `option-card p-4 rounded-lg cursor-pointer flex items-start gap-4 ${selectedClass}`;
+                    card.setAttribute('data-answer', answerText);
+                    card.onclick = () => this.toggleSelection(currentQ.id, answerText, currentQ.type);
+
+                    card.innerHTML = `
+                        <div class="icon-box w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-1">
+                            <i class="${iconSolidOrRegular} ${iconTypeClass} text-sm"></i>
+                        </div>
+                        <span class="text-sm font-medium text-gray-700 leading-relaxed">${answerText}</span>
+                    `;
+                    this.elements.optionsGrid.appendChild(card);
+                });
+
+                // Update button state initially
+                this.updateNextButtonState();
+            },
+
+            // Handle option selection
+            toggleSelection(qId, answerText, type) {
+                let selections = this.results[qId];
+
+                if (type === 'single') {
+                    if (selections === answerText) {
+                        selections = null; // Deselect if already selected
+                    } else {
+                        selections = answerText; // Select new answer
+                    }
+                } else if (type === 'multi') {
+                    selections = selections || [];
+                    const index = selections.indexOf(answerText);
+                    if (index > -1) {
+                        selections.splice(index, 1); // Deselect
+                    } else {
+                        selections.push(answerText); // Select
+                    }
+                }
+
+                this.results[qId] = selections;
+                this.updateOptionsUI(qId);
+                this.updateNextButtonState();
+            },
+
+            // Visually update options based on selection
+            updateOptionsUI(qId) {
+                const currentQ = questions[this.currentStepIndex];
+                // Get selections: single select is a string/null, multi is an array. Convert single to a temporary array for consistent checking.
+                const selections = currentQ.type === 'multi' ? (this.results[qId] || []) : (this.results[qId] ? [this.results[qId]] : []);
+                
+                const optionCards = this.elements.optionsGrid.querySelectorAll('.option-card');
+                
+                optionCards.forEach(card => {
+                    const answer = card.getAttribute('data-answer');
+                    const iconEl = card.querySelector('.icon-box i');
+                    
+                    const isSelected = selections.includes(answer);
+                    const iconBaseClass = currentQ.type === 'single' ? 'fa-circle' : 'fa-square';
+                    const iconSelectedClass = currentQ.type === 'single' ? 'fa-circle-dot' : 'fa-square-check';
+
+                    // Clean previous classes
+                    iconEl.classList.remove('fa-regular', 'fa-solid', iconBaseClass, iconSelectedClass);
+                    
+                    if (isSelected) {
+                        card.classList.add('selected');
+                        iconEl.classList.add('fa-solid', iconSelectedClass);
+                    } else {
+                        card.classList.remove('selected');
+                        iconEl.classList.add('fa-regular', iconBaseClass);
+                    }
+                });
+            },
+
+            // Update the state (enabled/disabled) of the Next button
+            updateNextButtonState() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ) {
+                    this.elements.nextBtn.classList.add('btn-disabled');
+                    this.elements.nextBtn.disabled = true;
+                    return;
+                }
+
+                // Check if any answer is selected
+                let isAnswered;
+                const result = this.results[currentQ.id];
+                if (currentQ.type === 'multi') {
+                    isAnswered = Array.isArray(result) && result.length > 0;
+                } else { // 'single'
+                    isAnswered = result !== null && result !== undefined;
+                }
+                
+                if (isAnswered) {
+                    this.elements.nextBtn.classList.remove('btn-disabled');
+                    this.elements.nextBtn.disabled = false;
+                } else {
+                    this.elements.nextBtn.classList.add('btn-disabled');
+                    this.elements.nextBtn.disabled = true;
+                }
+            },
+
+            // Go to the next question or the form
+            nextQuestion() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ || this.elements.nextBtn.disabled) return;
+
+                this.currentStepIndex++;
+
+                // Update progress bar to reflect move to next step/end
+                const progress = ((this.currentStepIndex) / questions.length) * 100;
+                this.elements.progressBar.style.width = `${progress}%`;
+
+                if (this.currentStepIndex < questions.length) {
+                    this.renderQuestion();
+                } else {
+                    // End of quiz, show form
+                    this.showScreen('leadFormScreen');
+                }
+            },
+
+            // Extract UTM source from URL
+            getUtmSource() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('utm_source') || 'direct';
+            },
+
+            // Basic form validation
+            validateForm() {
+                const { contactName, contactPhone, contactEmail, consentCheckbox, formError } = this.elements;
+                let errors = [];
+
+                if (contactName.value.trim().length < 3) errors.push("Внесете полно Име и Презиме.");
+                // Simple phone validation
+                const phoneRegex = /^\+?(\d[\d\s-]{7,}\d)$/; 
+                if (!phoneRegex.test(contactPhone.value.trim())) errors.push("Внесете валиден Телефонски број (минимум 8 цифри).");
+                // Basic email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(contactEmail.value.trim())) errors.push("Внесете валидна Email адреса.");
+                if (!consentCheckbox.checked) errors.push("Мора да се согласите за да ве контактираме.");
+
+                if (errors.length > 0) {
+                    formError.innerHTML = errors.join('<br>');
+                    formError.classList.remove('hidden');
+                    return false;
+                } else {
+                    formError.classList.add('hidden');
+                    return true;
+                }
+            },
+
+            // Submit form data
+            async submitForm() {
+                if (!this.validateForm()) return;
+
+                this.elements.submitBtn.disabled = true;
+                this.elements.submitBtn.textContent = 'Испраќање...';
+
+                const { contactName, contactPhone, contactEmail, contactFaculty } = this.elements;
+
+                // Prepare quiz results for submission
+                let quizSummary = {};
+                questions.forEach(q => {
+                    const result = this.results[q.id];
+                    let value;
+
+                    if (q.type === 'multi' && Array.isArray(result)) {
+                        value = result.join('; ');
+                    } else if (result !== null && result !== undefined) {
+                        value = result;
+                    } else {
+                        value = 'N/A';
+                    }
+
+                    quizSummary[q.id] = value;
+                });
+
+                const formData = {
+                    Timestamp: new Date().toISOString(),
+                    Name: contactName.value.trim(),
+                    Phone: contactPhone.value.trim(),
+                    Email: contactEmail.value.trim(),
+                    Faculty: contactFaculty.value.trim() || 'N/A',
+                    ...quizSummary,
+                    UTM_Source: this.getUtmSource()
+                };
+
+                // Helper for exponential backoff retry logic
+                const fetchWithRetry = async (url, options, retries = 3) => {
+                    for (let i = 0; i < retries; i++) {
+                        try {
+                            const response = await fetch(url, options);
+                            return response;
+                        } catch (error) {
+                            if (i < retries - 1) {
+                                const delay = Math.pow(2, i) * 1000;
+                                // console.log(`Fetch failed. Retrying in ${delay}ms...`); // Disabled console log for clean output
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                            } else {
+                                throw error;
+                            }
+                        }
+                    }
+                };
+
+
+                try {
+                    // Use fetchWithRetry for robust submission
+                    await fetchWithRetry(googleSheetUrl, {
+                        method: 'POST',
+                        mode: 'no-cors', // Required for Google Scripts endpoint
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(formData).toString()
+                    });
+
+                    // Assume success due to 'no-cors' mode and proceed to confirmation.
+                    this.showScreen('confirmationScreen');
+
+                } catch (error) {
+                    console.error("Submission failed (even after retries):", error);
+                    // Fallback: show confirmation even if network fails, to avoid bad UX.
+                    this.showScreen('confirmationScreen');
+                } finally {
+                    this.elements.submitBtn.disabled = false;
+                    this.elements.submitBtn.textContent = '👉 ИЗБЕРИ МИ ЛАПТОП';
+                }
+            },
+
+            // Initial setup
+            init() {
+                // Check for UTM parameter and store it
+                const utmSource = this.getUtmSource();
+                document.getElementById('utm_source_input').value = utmSource;
+
+                // Initialize the UI to the start screen
+                this.showScreen('startScreen');
+            }
+        };
+
+        // Run initialization when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            quizApp.init();
+        });
+    </script>
+</body>
+</html>
