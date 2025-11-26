@@ -211,7 +211,8 @@
             <!-- Header with Centered Logo -->
             <header class="p-6 md:p-8 flex items-center justify-center relative border-b border-gray-100/50 z-20">
                 <div class="flex items-center">
-                    <img src="https://i.postimg.cc/rsCJg2js/inet-liogo.png" alt="INet Logo" class="h-6 md:h-7">
+                    <!-- LOGO SIZE INCREASED -->
+                    <img src="https://i.postimg.cc/rsCJg2js/inet-liogo.png" alt="INet Logo" class="h-10 md:h-12">
                 </div>
             </header>
 
@@ -283,23 +284,14 @@
                                 <input type="text" id="contact_faculty" class="input-field w-full p-3 rounded-lg" placeholder="Правен факултет">
                             </div>
                             
-                            <!-- CONSENT CHECKBOX (FIXED CLICK) -->
+                            <!-- CONSENT CHECKBOX: simplified & fully clickable -->
                             <div class="flex items-start gap-3 pt-2">
-                                <div class="relative flex items-center">
-                                    <input
-                                        type="checkbox"
-                                        id="q_consent"
-                                        required
-                                        class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 bg-white transition-all checked:border-accent-blue checked:bg-accent-blue"
-                                    >
-                                    <svg
-                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity text-white"
-                                        viewBox="0 0 14 14"
-                                        fill="none"
-                                    >
-                                        <path d="M3 8L6 11L11 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
+                                <input
+                                    type="checkbox"
+                                    id="q_consent"
+                                    required
+                                    class="h-5 w-5 mt-0.5 cursor-pointer rounded border border-gray-300 text-blue-600 focus:ring-blue-500"
+                                >
                                 <label
                                     for="q_consent"
                                     class="text-xs text-gray-600 leading-tight cursor-pointer hover:text-gray-800 transition-colors pt-0.5"
@@ -385,7 +377,7 @@
                 consentCheckbox: document.getElementById('q_consent'),
             },
 
-            // FIXED: robust screen switcher (no overlap)
+            // Screen switcher
             showScreen(screenKey) {
                 const screenIds = [
                     'start-screen',
@@ -641,7 +633,6 @@
                         body: new URLSearchParams(formData).toString()
                     });
 
-                    // Show clean separate thank-you screen
                     this.showScreen('confirmationScreen');
 
                 } catch (error) {
