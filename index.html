@@ -9,14 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Tag Manager --><script>
+    <!-- Google Tag Manager -->
+    <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WC6S5RZV');
     </script>
-    <!-- End Google Tag Manager --><!-- Meta Pixel Code --><script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel Code -->
+    <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -28,13 +32,15 @@
     fbq('init', '4558619690906145');
     fbq('track', 'PageView');
     </script>
-    <!-- End Meta Pixel Code --><style>
+    <!-- End Meta Pixel Code -->
+
+    <style>
         /* Base Styling */
         body {
             font-family: 'Inter', sans-serif;
             color: #1f2937; /* Dark text */
             margin: 0;
-            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 50%, #c1dfeb 100%); /* Subtle blue gradient background */
+            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 50%, #c1dfeb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -43,21 +49,21 @@
         }
 
         /* Accent Colors */
-        .accent-blue { color: #007bff; } /* Primary Blue */
-        .accent-green { color: #28a745; } /* Secondary Green */
+        .accent-blue { color: #007bff; }
+        .accent-green { color: #28a745; }
         .bg-accent-blue { background-color: #007bff; }
         .bg-accent-green { background-color: #28a745; }
         .border-accent-blue { border-color: #007bff; }
-        .hover\:bg-blue-700:hover { background-color: #0056b3; } /* Darker blue on hover */
+        .hover\:bg-blue-700:hover { background-color: #0056b3; }
 
         /* Liquid Glass Card and Panel Styling */
         .quiz-panel {
-            background: rgba(255, 255, 255, 0.7); /* Translucent white */
-            backdrop-filter: blur(10px); /* Glass blur effect */
-            -webkit-backdrop-filter: blur(10px); /* Safari support */
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border */
-            border-radius: 20px; /* More rounded corners */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05); /* Softer, layered shadow */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             min-height: 600px;
             display: flex;
@@ -66,23 +72,23 @@
             transition: all 0.5s ease;
         }
 
-        /* Option Button Styling - Liquid Glass */
+        /* Option Button Styling */
         .option-card {
             transition: all 0.3s ease-out;
             border: 1px solid rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.6); /* Slightly more opaque for options */
-            border-radius: 12px; /* Rounded corners for options */
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
         .option-card:hover {
-            transform: translateY(-3px) scale(1.01); /* Subtle lift and scale */
-            border-color: rgba(0, 123, 255, 0.6); /* Blueish border on hover */
-            background: rgba(230, 240, 255, 0.8); /* Light blue background on hover */
-            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.15); /* More prominent blue shadow */
+            transform: translateY(-3px) scale(1.01);
+            border-color: rgba(0, 123, 255, 0.6);
+            background: rgba(230, 240, 255, 0.8);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.15);
         }
         .option-card.selected {
             border-color: #007bff;
-            background: rgba(0, 123, 255, 0.1); /* Very light blue for selected */
+            background: rgba(0, 123, 255, 0.1);
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
         }
         .option-card.selected .icon-box {
@@ -93,13 +99,13 @@
         
         .icon-box {
             transition: all 0.2s ease-out;
-            background: rgba(229, 231, 235, 0.8); /* Slightly translucent gray */
+            background: rgba(229, 231, 235, 0.8);
             color: #4b5563;
-            border-radius: 50%; /* Ensure roundness */
+            border-radius: 50%;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        /* Input Styling - Liquid Glass */
+        /* Input Styling */
         .input-field {
             border: 1px solid rgba(209, 213, 219, 0.6);
             background: rgba(255, 255, 255, 0.7);
@@ -125,24 +131,24 @@
         .progress-bar-fill {
             transition: width 0.6s ease-out;
             background: linear-gradient(to right, #28a745, #007bff);
-            border-radius: 9999px; /* Full rounded corners */
+            border-radius: 9999px;
         }
         #progress-container {
-            background: rgba(229, 231, 235, 0.5); /* Lighter, translucent background for bar */
+            background: rgba(229, 231, 235, 0.5);
             border-radius: 9999px;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        /* Disabled Button Style (for next/submit) */
+        /* Disabled Button Style */
         .btn-disabled {
-            background-color: rgba(209, 213, 219, 0.6) !important; /* Translucent gray-300 */
-            color: #9ca3af !important; /* Tailwind gray-400 */
+            background-color: rgba(209, 213, 219, 0.6) !important;
+            color: #9ca3af !important;
             cursor: not-allowed !important;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important; /* Inset shadow for disabled */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important;
             transform: none !important;
         }
 
-        /* Button base style for liquid effect */
+        /* Button base style */
         .quiz-button {
             border-radius: 12px;
             background: #007bff;
@@ -159,17 +165,17 @@
         }
 
         .cta-button-accent {
-            background: linear-gradient(45deg, #007bff, #28a745); /* Blue to Green Gradient */
+            background: linear-gradient(45deg, #007bff, #28a745);
             box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
         }
         .cta-button-accent:hover:not(.btn-disabled) {
-            background: linear-gradient(45deg, #0056b3, #1e7e34); /* Darker gradient on hover */
+            background: linear-gradient(45deg, #0056b3, #1e7e34);
             box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
         }
 
         /* Thank you screen elements */
         #confirmation-screen .bg-green-50 {
-            background: rgba(40, 167, 69, 0.1); /* Translucent green */
+            background: rgba(40, 167, 69, 0.1);
             border: 1px solid rgba(40, 167, 69, 0.3);
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(40, 167, 69, 0.1);
@@ -187,12 +193,14 @@
 </head>
 <body>
 
-    <!-- Google Tag Manager (noscript) --><noscript>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC6S5RZV"
         height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
 
-    <!-- Meta Pixel (noscript) --><noscript>
+    <!-- Meta Pixel (noscript) -->
+    <noscript>
         <img height="1" width="1" style="display:none"
         src="https://www.facebook.com/tr?id=4558619690906145&ev=PageView&noscript=1" />
     </noscript>
@@ -200,15 +208,17 @@
     <main id="app" class="relative z-10 w-full max-w-2xl mx-auto">
         <div class="quiz-panel">
             
-            <!-- Header with Centered Logo --><header class="p-6 md:p-8 flex items-center justify-center relative border-b border-gray-100/50 z-20">
-                <!-- INet Logo PNG --><div class="flex items-center">
+            <!-- Header with Centered Logo -->
+            <header class="p-6 md:p-8 flex items-center justify-center relative border-b border-gray-100/50 z-20">
+                <div class="flex items-center">
                     <img src="https://i.postimg.cc/rsCJg2js/inet-liogo.png" alt="INet Logo" class="h-6 md:h-7">
                 </div>
             </header>
 
             <div id="content-area" class="flex-1 p-6 md:p-10 flex flex-col justify-center relative">
                 
-                <!-- START SCREEN --><div id="start-screen" class="text-center flex flex-col items-center justify-center h-full fade-in absolute inset-0 z-10 p-6">
+                <!-- START SCREEN -->
+                <div id="start-screen" class="text-center flex flex-col items-center justify-center h-full fade-in absolute inset-0 z-10 p-6">
                     <div class="mb-6">
                         <i class="fa-solid fa-graduation-cap text-6xl md:text-7xl accent-blue"></i>
                     </div>
@@ -225,7 +235,8 @@
                     </button>
                 </div>
 
-                <!-- QUESTION SCREEN --><div id="question-screen" class="hidden h-full flex-col justify-center relative z-10">
+                <!-- QUESTION SCREEN -->
+                <div id="question-screen" class="hidden h-full flex-col justify-center relative z-10">
                     <div class="mb-8">
                         <div class="flex items-center gap-3 mb-3">
                             <span id="question-number" class="accent-blue text-sm font-bold border border-accent-blue px-2 py-0.5 rounded-full">1/6</span>
@@ -235,19 +246,21 @@
                         <p id="selection-info" class="text-sm text-gray-500 mt-2 hidden"></p>
                     </div>
 
-                    <!-- Progress Bar --><div id="progress-container" class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-8">
+                    <div id="progress-container" class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-8">
                         <div id="progress-bar" class="h-full w-0 progress-bar-fill"></div>
                     </div>
 
                     <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- Options injected by JS --></div>
+                        <!-- Options injected by JS -->
+                    </div>
                     
                     <button id="next-btn" onclick="quizApp.nextQuestion()" class="quiz-button mt-8 py-3 text-white font-bold uppercase tracking-wider btn-disabled">
                         Следно <i class="fa-solid fa-chevron-right ml-2"></i>
                     </button>
                 </div>
 
-                <!-- LEAD / CONTACT FORM SCREEN --><div id="lead-form-screen" class="hidden h-full flex flex-col justify-center fade-in w-full p-2">
+                <!-- LEAD / CONTACT FORM SCREEN -->
+                <div id="lead-form-screen" class="hidden h-full flex flex-col justify-center fade-in w-full p-2">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-2">Ќе ви го препорачаме идеалениот избор за тебе!</h2>
                     <p class="text-gray-600 text-center text-lg mb-8">Остави контакт и ќе ти пратиме 1–3 лаптоп модели што најмногу ти одговараат.</p>
                     
@@ -283,7 +296,8 @@
                             </label>
 
                             <div id="form-error" class="hidden text-red-600 text-sm mt-2 font-medium bg-red-50/70 p-3 rounded border border-red-300 backdrop-blur-sm">
-                                <!-- Error message injected here --></div>
+                                <!-- Error message injected here -->
+                            </div>
 
                             <button id="submitBtn" onclick="quizApp.submitForm()" class="quiz-button cta-button-accent w-full mt-6 py-4">
                                 👉 ИЗБЕРИ МИ ЛАПТОП
@@ -292,7 +306,8 @@
                     </div>
                 </div>
 
-                <!-- CONFIRMATION SCREEN (THANK YOU PAGE) --><div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in absolute inset-0 z-30 p-6 text-center">
+                <!-- CONFIRMATION SCREEN -->
+                <div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in absolute inset-0 z-30 p-6 text-center">
                     <i class="fa-solid fa-check-circle accent-green text-7xl mb-6"></i>
                     <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800">Ти благодариме!</h2>
                     
@@ -314,7 +329,8 @@
         </div>
     </main>
 
-    <!-- Hidden Input for UTM --><input type="hidden" id="utm_source_input" value="">
+    <!-- Hidden Input for UTM -->
+    <input type="hidden" id="utm_source_input" value="">
 
     <script>
         // --- Data & Configuration ---
@@ -327,13 +343,13 @@
             { id: "q6", title: "Приближен буџет?", type: "single", answers: ["До 25.000 ден", "25.000–35.000 ден", "35.000–45.000 ден", "45.000+ ден", "Не сум сигурен, затоа го правам квизот"] }
         ];
 
-        // Google Sheets target URL - UPDATED AS REQUESTED
-        const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxELxOipS56TMlcw77puJ1dS2r47D8fbBP3VUUy11HojsnIjPEMzTEpJDpEkbqN3hQvIw/exec";
+        // Google Sheets target URL - UPDATED
+        const googleSheetUrl = "https://script.google.com/macros/s/AKfycbwRb0f_Z2MJQw4erCKqsAF72xpO6CPgOrkvPHglTiWTiUcTaV68aZ-M_ZsyqqD4Ykd2/exec";
 
         // --- Logic Engine ---
         const quizApp = {
             currentStepIndex: 0,
-            results: {}, // Stores all question answers
+            results: {},
             
             elements: {
                 startScreen: document.getElementById('start-screen'),
@@ -349,7 +365,6 @@
                 confirmationScreen: document.getElementById('confirmation-screen'),
                 submitBtn: document.getElementById('submitBtn'),
                 formError: document.getElementById('form-error'),
-                // Form fields
                 contactName: document.getElementById('contact_name'),
                 contactPhone: document.getElementById('contact_phone'),
                 contactEmail: document.getElementById('contact_email'),
@@ -357,16 +372,13 @@
                 consentCheckbox: document.getElementById('q_consent'),
             },
 
-            // Utility function to show/hide screens
             showScreen(screenId) {
-                // Hide all screens
                 Object.values(this.elements).forEach(el => {
                     if (el && el.id && (el.id.endsWith('Screen') || el.id === 'start-screen' || el.id === 'question-screen')) {
                         el.classList.add('hidden');
                         el.classList.remove('fade-in', 'flex', 'flex-col');
                     }
                 });
-                // Show target screen
                 const screen = this.elements[screenId];
                 if (screen) {
                     screen.classList.remove('hidden');
@@ -374,15 +386,13 @@
                 }
             },
 
-            // Start the quiz
             start() {
                 this.currentStepIndex = 0;
-                this.results = {}; // Clear previous results
+                this.results = {};
                 this.showScreen('questionScreen');
                 this.renderQuestion();
             },
 
-            // Render the current question and options
             renderQuestion() {
                 const currentQ = questions[this.currentStepIndex];
                 if (!currentQ) return;
@@ -390,11 +400,9 @@
                 this.elements.questionNumber.textContent = `${this.currentStepIndex + 1}/${questions.length}`;
                 this.elements.questionText.textContent = currentQ.title;
 
-                // Update progress bar (currentStepIndex is 0-based)
                 const progress = ((this.currentStepIndex) / questions.length) * 100;
                 this.elements.progressBar.style.width = `${progress}%`;
 
-                // Setup selection info for multi-select
                 if (currentQ.type === 'multi') {
                     this.elements.selectionInfo.textContent = "(Можеш да избереш повеќе одговори)";
                     this.elements.selectionInfo.classList.remove('hidden');
@@ -404,11 +412,9 @@
 
                 this.elements.optionsGrid.innerHTML = '';
                 
-                // Initialize result for the current question if not already set
                 if (this.results[currentQ.id] === undefined) {
                     this.results[currentQ.id] = currentQ.type === 'multi' ? [] : null;
                 }
-
 
                 currentQ.answers.forEach((answerText) => {
                     const isSelected = (currentQ.type === 'multi' && this.results[currentQ.id].includes(answerText)) || 
@@ -435,27 +441,25 @@
                     this.elements.optionsGrid.appendChild(card);
                 });
 
-                // Update button state initially
                 this.updateNextButtonState();
             },
 
-            // Handle option selection
             toggleSelection(qId, answerText, type) {
                 let selections = this.results[qId];
 
                 if (type === 'single') {
                     if (selections === answerText) {
-                        selections = null; // Deselect if already selected
+                        selections = null;
                     } else {
-                        selections = answerText; // Select new answer
+                        selections = answerText;
                     }
                 } else if (type === 'multi') {
                     selections = selections || [];
                     const index = selections.indexOf(answerText);
                     if (index > -1) {
-                        selections.splice(index, 1); // Deselect
+                        selections.splice(index, 1);
                     } else {
-                        selections.push(answerText); // Select
+                        selections.push(answerText);
                     }
                 }
 
@@ -464,10 +468,8 @@
                 this.updateNextButtonState();
             },
 
-            // Visually update options based on selection
             updateOptionsUI(qId) {
                 const currentQ = questions[this.currentStepIndex];
-                // Get selections: single select is a string/null, multi is an array. Convert single to a temporary array for consistent checking.
                 const selections = currentQ.type === 'multi' ? (this.results[qId] || []) : (this.results[qId] ? [this.results[qId]] : []);
                 
                 const optionCards = this.elements.optionsGrid.querySelectorAll('.option-card');
@@ -480,7 +482,6 @@
                     const iconBaseClass = currentQ.type === 'single' ? 'fa-circle' : 'fa-square';
                     const iconSelectedClass = currentQ.type === 'single' ? 'fa-circle-dot' : 'fa-square-check';
 
-                    // Clean previous classes
                     iconEl.classList.remove('fa-regular', 'fa-solid', iconBaseClass, iconSelectedClass);
                     
                     if (isSelected) {
@@ -493,7 +494,6 @@
                 });
             },
 
-            // Update the state (enabled/disabled) of the Next button
             updateNextButtonState() {
                 const currentQ = questions[this.currentStepIndex];
                 if (!currentQ) {
@@ -502,12 +502,11 @@
                     return;
                 }
 
-                // Check if any answer is selected
                 let isAnswered;
                 const result = this.results[currentQ.id];
                 if (currentQ.type === 'multi') {
                     isAnswered = Array.isArray(result) && result.length > 0;
-                } else { // 'single'
+                } else {
                     isAnswered = result !== null && result !== undefined;
                 }
                 
@@ -520,41 +519,34 @@
                 }
             },
 
-            // Go to the next question or the form
             nextQuestion() {
                 const currentQ = questions[this.currentStepIndex];
                 if (!currentQ || this.elements.nextBtn.disabled) return;
 
                 this.currentStepIndex++;
 
-                // Update progress bar to reflect move to next step/end
                 const progress = ((this.currentStepIndex) / questions.length) * 100;
                 this.elements.progressBar.style.width = `${progress}%`;
 
                 if (this.currentStepIndex < questions.length) {
                     this.renderQuestion();
                 } else {
-                    // End of quiz, show form
                     this.showScreen('leadFormScreen');
                 }
             },
 
-            // Extract UTM source from URL
             getUtmSource() {
                 const urlParams = new URLSearchParams(window.location.search);
                 return urlParams.get('utm_source') || 'direct';
             },
 
-            // Basic form validation
             validateForm() {
                 const { contactName, contactPhone, contactEmail, consentCheckbox, formError } = this.elements;
                 let errors = [];
 
                 if (contactName.value.trim().length < 3) errors.push("Внесете полно Име и Презиме.");
-                // Simple phone validation
                 const phoneRegex = /^\+?(\d[\d\s-]{7,}\d)$/; 
                 if (!phoneRegex.test(contactPhone.value.trim())) errors.push("Внесете валиден Телефонски број (минимум 8 цифри).");
-                // Basic email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(contactEmail.value.trim())) errors.push("Внесете валидна Email адреса.");
                 if (!consentCheckbox.checked) errors.push("Мора да се согласите за да ве контактираме.");
@@ -569,7 +561,6 @@
                 }
             },
 
-            // Submit form data
             async submitForm() {
                 if (!this.validateForm()) return;
 
@@ -578,7 +569,6 @@
 
                 const { contactName, contactPhone, contactEmail, contactFaculty } = this.elements;
 
-                // Prepare quiz results for submission
                 let quizSummary = {};
                 questions.forEach(q => {
                     const result = this.results[q.id];
@@ -605,7 +595,6 @@
                     UTM_Source: this.getUtmSource()
                 };
 
-                // Helper for exponential backoff retry logic
                 const fetchWithRetry = async (url, options, retries = 3) => {
                     for (let i = 0; i < retries; i++) {
                         try {
@@ -614,7 +603,6 @@
                         } catch (error) {
                             if (i < retries - 1) {
                                 const delay = Math.pow(2, i) * 1000;
-                                // console.log(`Fetch failed. Retrying in ${delay}ms...`); // Disabled console log for clean output
                                 await new Promise(resolve => setTimeout(resolve, delay));
                             } else {
                                 throw error;
@@ -623,24 +611,20 @@
                     }
                 };
 
-
                 try {
-                    // Use fetchWithRetry for robust submission
                     await fetchWithRetry(googleSheetUrl, {
                         method: 'POST',
-                        mode: 'no-cors', // Required for Google Scripts endpoint
+                        mode: 'no-cors',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         body: new URLSearchParams(formData).toString()
                     });
 
-                    // Assume success due to 'no-cors' mode and proceed to confirmation.
                     this.showScreen('confirmationScreen');
 
                 } catch (error) {
                     console.error("Submission failed (even after retries):", error);
-                    // Fallback: show confirmation even if network fails, to avoid bad UX.
                     this.showScreen('confirmationScreen');
                 } finally {
                     this.elements.submitBtn.disabled = false;
@@ -648,18 +632,13 @@
                 }
             },
 
-            // Initial setup
             init() {
-                // Check for UTM parameter and store it
                 const utmSource = this.getUtmSource();
                 document.getElementById('utm_source_input').value = utmSource;
-
-                // Initialize the UI to the start screen
                 this.showScreen('startScreen');
             }
         };
 
-        // Run initialization when the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
             quizApp.init();
         });
