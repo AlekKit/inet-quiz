@@ -38,7 +38,7 @@
         /* Base Styling */
         body {
             font-family: 'Inter', sans-serif;
-            color: #1f2937; /* Dark text */
+            color: #1f2937;
             margin: 0;
             background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 50%, #c1dfeb 100%);
             display: flex;
@@ -283,17 +283,30 @@
                                 <input type="text" id="contact_faculty" class="input-field w-full p-3 rounded-lg" placeholder="Правен факултет">
                             </div>
                             
-                            <label class="flex items-start gap-3 cursor-pointer group pt-2">
+                            <!-- CONSENT CHECKBOX (FIXED CLICK) -->
+                            <div class="flex items-start gap-3 pt-2">
                                 <div class="relative flex items-center">
-                                    <input type="checkbox" id="q_consent" class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 bg-white transition-all checked:border-accent-blue checked:bg-accent-blue">
-                                    <svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity text-white" viewBox="0 0 14 14" fill="none">
+                                    <input
+                                        type="checkbox"
+                                        id="q_consent"
+                                        required
+                                        class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-gray-300 bg-white transition-all checked:border-accent-blue checked:bg-accent-blue"
+                                    >
+                                    <svg
+                                        class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity text-white"
+                                        viewBox="0 0 14 14"
+                                        fill="none"
+                                    >
                                         <path d="M3 8L6 11L11 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
-                                <span class="text-xs text-gray-600 leading-tight group-hover:text-gray-800 transition-colors pt-0.5">
+                                <label
+                                    for="q_consent"
+                                    class="text-xs text-gray-600 leading-tight cursor-pointer hover:text-gray-800 transition-colors pt-0.5"
+                                >
                                     Се согласувам да бидам контактиран во врска со мојата препорака и понуди.
-                                </span>
-                            </label>
+                                </label>
+                            </div>
 
                             <div id="form-error" class="hidden text-red-600 text-sm mt-2 font-medium bg-red-50/70 p-3 rounded border border-red-300 backdrop-blur-sm">
                                 <!-- Error message injected here -->
@@ -307,7 +320,7 @@
                 </div>
 
                 <!-- CONFIRMATION SCREEN -->
-                <div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in absolute inset-0 z-30 p-6 text-center">
+                <div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in p-6 text-center">
                     <i class="fa-solid fa-check-circle accent-green text-7xl mb-6"></i>
                     <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800">Ти благодариме!</h2>
                     
@@ -343,7 +356,7 @@
             { id: "q6", title: "Приближен буџет?", type: "single", answers: ["До 25.000 ден", "25.000–35.000 ден", "35.000–45.000 ден", "45.000+ ден", "Не сум сигурен, затоа го правам квизот"] }
         ];
 
-        // Google Sheets target URL - UPDATED
+        // Google Sheets target URL
         const googleSheetUrl = "https://script.google.com/macros/s/AKfycbwRb0f_Z2MJQw4erCKqsAF72xpO6CPgOrkvPHglTiWTiUcTaV68aZ-M_ZsyqqD4Ykd2/exec";
 
         // --- Logic Engine ---
@@ -372,14 +385,23 @@
                 consentCheckbox: document.getElementById('q_consent'),
             },
 
-            showScreen(screenId) {
-                Object.values(this.elements).forEach(el => {
-                    if (el && el.id && (el.id.endsWith('Screen') || el.id === 'start-screen' || el.id === 'question-screen')) {
-                        el.classList.add('hidden');
-                        el.classList.remove('fade-in', 'flex', 'flex-col');
-                    }
+            // FIXED: robust screen switcher (no overlap)
+            showScreen(screenKey) {
+                const screenIds = [
+                    'start-screen',
+                    'question-screen',
+                    'lead-form-screen',
+                    'confirmation-screen'
+                ];
+
+                screenIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.classList.add('hidden');
+                    el.classList.remove('fade-in', 'flex', 'flex-col');
                 });
-                const screen = this.elements[screenId];
+
+                const screen = this.elements[screenKey];
                 if (screen) {
                     screen.classList.remove('hidden');
                     screen.classList.add('fade-in', 'flex', 'flex-col');
@@ -448,11 +470,7 @@
                 let selections = this.results[qId];
 
                 if (type === 'single') {
-                    if (selections === answerText) {
-                        selections = null;
-                    } else {
-                        selections = answerText;
-                    }
+                    selections = (selections === answerText) ? null : answerText;
                 } else if (type === 'multi') {
                     selections = selections || [];
                     const index = selections.indexOf(answerText);
@@ -470,7 +488,9 @@
 
             updateOptionsUI(qId) {
                 const currentQ = questions[this.currentStepIndex];
-                const selections = currentQ.type === 'multi' ? (this.results[qId] || []) : (this.results[qId] ? [this.results[qId]] : []);
+                const selections = currentQ.type === 'multi'
+                    ? (this.results[qId] || [])
+                    : (this.results[qId] ? [this.results[qId]] : []);
                 
                 const optionCards = this.elements.optionsGrid.querySelectorAll('.option-card');
                 
@@ -621,6 +641,7 @@
                         body: new URLSearchParams(formData).toString()
                     });
 
+                    // Show clean separate thank-you screen
                     this.showScreen('confirmationScreen');
 
                 } catch (error) {
