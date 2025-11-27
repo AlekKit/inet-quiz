@@ -1,192 +1,668 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="mk">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lenovo Квиз — Откриј го идеалниот Lenovo</title>
-<meta name="description" content="Одговори на 8 брзи прашања и добиј директна препорака за идеален Lenovo лаптоп." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INet Квиз — Избери го твојот идеален лаптоп</title>
+    <meta name="description" content="Одговори на прашања и добиј препорака од INet експерт." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WC6S5RZV');
+    </script>
+    <!-- End Google Tag Manager -->
 
-<!-- Google Tag Manager -->
-<script>
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WC6S5RZV');
-</script>
-<!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4558619690906145');
+    fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4558619690906145');
-fbq('track', 'PageView');
-</script>
-<!-- End Meta Pixel Code -->
+    <style>
+        /* Base Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937;
+            margin: 0;
+            background: linear-gradient(135deg, #e0f2f7 0%, #d1e8ef 50%, #c1dfeb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
 
-<style>
-  :root{
-    --bg:#ffffff; --text:#111827; --muted:#6b7280; --border:#e5e7eb; --card:#ffffff;
-    --lenovo-red:#E2231A; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.06);
-  }
-  *{box-sizing:border-box} html,body{height:100%} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+        /* Accent Colors */
+        .accent-blue { color: #007bff; }
+        .accent-green { color: #28a745; }
+        .bg-accent-blue { background-color: #007bff; }
+        .bg-accent-green { background-color: #28a745; }
+        .border-accent-blue { border-color: #007bff; }
+        .hover\:bg-blue-700:hover { background-color: #0056b3; }
 
-  .topbar { position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--border);
-            width:100%; display:flex; justify-content:center; align-items:center; padding:12px 0; }
-  .topbar-inner { width:100%; display:flex; justify-content:center; align-items:center; }
-  .topbar-inner img { display:block; margin:0 auto; height:58px; }
+        /* Liquid Glass Card and Panel Styling */
+        .quiz-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.5s ease;
+        }
 
-  .wrap{max-width:960px;margin:0 auto;padding:20px}
+        /* Option Button Styling */
+        .option-card {
+            transition: all 0.3s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .option-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            border-color: rgba(0, 123, 255, 0.6);
+            background: rgba(230, 240, 255, 0.8);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.15);
+        }
+        .option-card.selected {
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+        }
+        .option-card.selected .icon-box {
+            background-color: #007bff;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+        
+        .icon-box {
+            transition: all 0.2s ease-out;
+            background: rgba(229, 231, 235, 0.8);
+            color: #4b5563;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
 
-  header.hero{background:#fff;}
-  .hero-inner{
-    display:flex; align-items:center; justify-content:center;
-    min-height:38vh; padding:10px;
-  }
-  .intro-card{
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); width:min(820px,100%); padding:22px;
-    text-align:center; margin:0 auto;  margin-top:400px !important;
-  }
-  @media (max-width: 720px) {
-    .intro-card { margin-top: 260px !important; }
-  }
-  h1{font-size:24px;margin:8px 0 6px}
-  .sub{color:var(--muted);margin:0 0 18px;font-size:14px}
-  .start-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lenovo-red);color:#fff;border:none;padding:12px 18px;border-radius:999px;cursor:pointer;font-weight:700;letter-spacing:.2px;text-transform:uppercase}
+        /* Input Styling */
+        .input-field {
+            border: 1px solid rgba(209, 213, 219, 0.6);
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25), inset 0 1px 3px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.9);
+        }
 
-  .container{padding:18px 0 36px}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);max-width:780px;margin:0 auto}
-  .progress{height:8px;border-radius:8px;background:#f3f4f6;overflow:hidden;margin:4px 0 16px}
-  .progress>div{height:100%;background:var(--lenovo-red);width:0%}
-  .pill{display:inline-block;background:#f8fafc;border:1px solid var(--border);color:#6b7280;border-radius:999px;padding:6px 10px;font-size:12px;margin-bottom:8px}
-  .q-title{font-size:20px;margin:6px 0 14px}
-  .answers{display:grid;gap:12px}
-  .btn{
-    border:1px solid var(--border);
-    background:#fff;
-    color:var(--text);
-    padding:14px 14px;
-    border-radius:12px;
-    font-weight:600;
-    cursor:pointer;
-    text-align:left;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:transform .03s ease, border-color .15s ease, box-shadow .15s ease, background .15s ease
-  }
-  .btn:hover{border-color:#c9ced6;box-shadow:0 4px 14px rgba(17,24,39,.06)}
-  .btn.primary{display:inline-flex;align-items:center;justify-content:center;text-align:center;background:var(--lenovo-red);color:#fff;border:0}
-  .row{display:flex;gap:12px;flex-wrap:wrap}
-  .field{flex:1 1 220px;display:flex;flex-direction:column;gap:6px}
-  input[type="text"],input[type="email"],input[type="tel"]{background:#fff;border:1px solid var(--border);color:#111827;border-radius:10px;padding:12px 12px;font-size:15px}
-  label.consent{display:flex;align-items:flex-start;gap:10px;color:#374151;font-size:14px;margin:8px 0 10px}
-  input[type="checkbox"]{transform:translateY(2px)}
-  .error{color:#dc2626;font-size:13px;margin-top:4px;display:none}
-  .hidden{display:none !important}
-  .grid-2{grid-template-columns:1fr}
-  @media(min-width:720px){ .grid-2{grid-template-columns:repeat(2,1fr)} }
+        /* Animations */
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  .hero-img{
-    width:100%; max-width:780px; margin:0 auto 14px auto;
-    border-radius:14px; overflow:hidden; border:1px solid var(--border);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-img img{ display:block; max-width:100%; height:auto; margin:0 auto; }
+        /* Progress Bar */
+        .progress-bar-fill {
+            transition: width 0.6s ease-out;
+            background: linear-gradient(to right, #28a745, #007bff);
+            border-radius: 9999px;
+        }
+        #progress-container {
+            background: rgba(229, 231, 235, 0.5);
+            border-radius: 9999px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
 
-  .preview{margin-top:12px; display:flex; gap:12px; align-items:center; border:1px solid var(--border); padding:12px; border-radius:12px; background:#fafafa}
-  .preview img{width:88px;height:88px;object-fit:cover;border-radius:10px;border:1px solid #e5e7eb;background:#fff}
-  .preview .meta{font-size:14px}
-  .preview .meta .name{font-weight:700}
+        /* Disabled Button Style */
+        .btn-disabled {
+            background-color: rgba(209, 213, 219, 0.6) !important;
+            color: #9ca3af !important;
+            cursor: not-allowed !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1) !important;
+            transform: none !important;
+        }
 
-  @media (min-height: 520px) {
-    #startCard, #quizCard { transform: translateY(-180px); }
-  }
-</style>
+        /* Button base style */
+        .quiz-button {
+            border-radius: 12px;
+            background: #007bff;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.25);
+            border: none;
+        }
+        .quiz-button:hover:not(.btn-disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
+        }
+
+        .cta-button-accent {
+            background: linear-gradient(45deg, #007bff, #28a745);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+        }
+        .cta-button-accent:hover:not(.btn-disabled) {
+            background: linear-gradient(45deg, #0056b3, #1e7e34);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Thank you screen elements */
+        #confirmation-screen .bg-green-50 {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.1);
+        }
+        #confirmation-screen .text-left > div {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+    </style>
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC6S5RZV"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC6S5RZV"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
 
-<!-- Meta Pixel (noscript) -->
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=4558619690906145&ev=PageView&noscript=1" />
-</noscript>
-<!-- End Meta Pixel (noscript) -->
+    <!-- Meta Pixel (noscript) -->
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=4558619690906145&ev=PageView&noscript=1" />
+    </noscript>
 
-  <div class="topbar">
-    <div class="topbar-inner"><img id="logoImg" src="https://cdn.worldvectorlogo.com/logos/lenovo-2.svg" alt="Lenovo" /></div>
-  </div>
+    <main id="app" class="relative z-10 w-full max-w-2xl mx-auto">
+        <div class="quiz-panel">
+            
+            <!-- Header with Centered Logo -->
+            <header class="p-6 md:p-8 flex items-center justify-center relative border-b border-gray-100/50 z-20">
+                <div class="flex items-center">
+                    <img src="https://i.postimg.cc/rsCJg2js/inet-liogo.png" alt="INet Logo" class="h-10 md:h-12">
+                </div>
+            </header>
 
-  <header class="hero">
-    <div class="wrap hero-inner">
-      <div class="intro-card" id="startCard">
-        <div class="hero-img">
-          <img id="heroImage" src="https://static.beebom.com/wp-content/uploads/2018/04/lenovi-thinkpad-x1.jpg?w=750&quality=75" alt="Lenovo Hero" />
+            <div id="content-area" class="flex-1 p-6 md:p-10 flex flex-col justify-center relative">
+                
+                <!-- START SCREEN -->
+                <div id="start-screen" class="text-center flex flex-col items-center justify-center h-full fade-in absolute inset-0 z-10 p-6">
+                    <div class="mb-6">
+                        <i class="fa-solid fa-graduation-cap text-6xl md:text-7xl accent-blue"></i>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight leading-tight text-gray-800">
+                        Кој Леново лаптоп е идеален за твојот факултет
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+                        Стотици студенти веќе го најдоа идеалниот лаптоп за нив преку овој квиз. Одговори на 6 прашања и најди го и ти.
+                    </p>
+                    
+                    <button onclick="quizApp.start()" class="quiz-button cta-button-accent px-10 py-4 text-lg tracking-wide">
+                        ПОЧНИ КВИЗ
+                        <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                </div>
+
+                <!-- QUESTION SCREEN -->
+                <div id="question-screen" class="hidden h-full flex-col justify-center relative z-10">
+                    <div class="mb-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span id="question-number" class="accent-blue text-sm font-bold border border-accent-blue px-2 py-0.5 rounded-full">1/6</span>
+                            <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">Чекор</span>
+                        </div>
+                        <h2 id="question-text" class="text-2xl md:text-3xl font-bold text-gray-800 leading-snug"></h2>
+                        <p id="selection-info" class="text-sm text-gray-500 mt-2 hidden"></p>
+                    </div>
+
+                    <div id="progress-container" class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-8">
+                        <div id="progress-bar" class="h-full w-0 progress-bar-fill"></div>
+                    </div>
+
+                    <div id="options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Options injected by JS -->
+                    </div>
+                    
+                    <button id="next-btn" onclick="quizApp.nextQuestion()" class="quiz-button mt-8 py-3 text-white font-bold uppercase tracking-wider btn-disabled">
+                        Следно <i class="fa-solid fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- LEAD / CONTACT FORM SCREEN -->
+                <div id="lead-form-screen" class="hidden h-full flex flex-col justify-center fade-in w-full p-2">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center mb-2">Кој Lenovo e Идеален За Тебе?</h2>
+                    <p class="text-gray-600 text-center text-lg mb-8">Сега само остави контакт и ќе ти пратиме 1–3 Lenovo модели што најмногу ти одговараат.</p>
+                    
+                    <div class="w-full max-w-md mx-auto bg-gray-50/70 p-6 rounded-xl border border-gray-100/50 shadow-lg backdrop-blur-sm">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="contact_name" class="block text-sm font-medium text-gray-700 mb-1">Име и Презиме</label>
+                                <input type="text" id="contact_name" class="input-field w-full p-3 rounded-lg" placeholder="Петар Петровски">
+                            </div>
+                            <div>
+                                <label for="contact_phone" class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
+                                <input type="tel" id="contact_phone" class="input-field w-full p-3 rounded-lg" placeholder="+389 7X XXX XXX (пр. +38970123456)">
+                            </div>
+                            <div>
+                                <label for="contact_email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="contact_email" class="input-field w-full p-3 rounded-lg" placeholder="petar@example.com">
+                            </div>
+                            <div>
+                                <label for="contact_faculty" class="block text-sm font-medium text-gray-700 mb-1">Факултет</label>
+                                <input type="text" id="contact_faculty" class="input-field w-full p-3 rounded-lg" placeholder="Правен факултет">
+                            </div>
+                            
+                            <div class="flex items-start gap-3 pt-2">
+                                <input
+                                    type="checkbox"
+                                    id="q_consent"
+                                    required
+                                    class="h-5 w-5 mt-0.5 cursor-pointer rounded border border-gray-300 text-blue-600 focus:ring-blue-500"
+                                >
+                                <label
+                                    for="q_consent"
+                                    class="text-xs text-gray-600 leading-tight cursor-pointer hover:text-gray-800 transition-colors pt-0.5"
+                                >
+                                    Се согласувам да бидам контактиран во врска со мојата препорака и понуди.
+                                </label>
+                            </div>
+
+                            <div id="form-error" class="hidden text-red-600 text-sm mt-2 font-medium bg-red-50/70 p-3 rounded border border-red-300 backdrop-blur-sm">
+                                <!-- Error message injected here -->
+                            </div>
+
+                            <button id="submitBtn" onclick="quizApp.submitForm()" class="quiz-button cta-button-accent w-full mt-6 py-4">
+                                👉 ИЗБЕРИ МИ ЛАПТОП
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONFIRMATION SCREEN -->
+                <div id="confirmation-screen" class="hidden h-full flex flex-col items-center justify-center fade-in p-6 text-center">
+                    <i class="fa-solid fa-check-circle accent-green text-7xl mb-6"></i>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800">Ти благодариме!</h2>
+                    
+                    <p class="text-gray-600 text-lg mb-8 max-w-lg mx-auto">
+                        Наш IT советник ќе ти се јави кратко и ќе ти препорача најдобра опција за твоите потреби, буџет и факултет.
+                    </p>
+                    <p class="text-gray-700 text-lg font-bold mb-8 max-w-lg mx-auto bg-green-50 p-4 rounded-lg border border-green-200">
+                        Ова е бесплатна услуга од INet.
+                    </p>
+
+                    <div class="text-left space-y-2 mt-4 max-w-xs w-full text-sm text-gray-700">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">27 години искуство</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">Овластен Lenovo партнер</span></div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check accent-green"></i> <span class="font-semibold">Гаранција и сервис во Македонија</span></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <h1 id="heroTitle">Кој Леново лаптоп е идеален  за твојот факултет</h1>
-        <p class="sub" id="heroSub">Стотици студенти веќе го најдоа идеалниот лаптоп за нив преку овој квиз. Одговори на 6 прашања и најди го и ти.</p>
-        <button class="start-btn" id="startBtn" aria-label="Почни"><span id="startCta">ПОЧНИ</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 12h14M13 5l7 7-7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
+    </main>
 
-  <main class="wrap container">
-    <div class="card hidden" id="quizCard">
-      <div class="progress"><div id="bar"></div></div>
-      <div id="quiz"></div>
-    </div>
-  </main>
+    <!-- Hidden Input for UTM -->
+    <input type="hidden" id="utm_source_input" value="">
 
-  <!-- Netlify Forms (hidden) -->
-  <form name="quiz-lead" method="POST" data-netlify="true" class="hidden" id="netlifyForm">
-    <input type="hidden" name="form-name" value="quiz-lead" />
-    <input type="hidden" name="full_name" id="nf_full_name" />
-    <input type="hidden" name="email" id="nf_email" />
-    <input type="hidden" name="phone" id="nf_phone" />
-    <input type="hidden" name="consent" id="nf_consent" />
-    <input type="hidden" name="scores_legion" id="nf_legion" />
-    <input type="hidden" name="scores_thinkbook14" id="nf_thinkbook14" />
-    <input type="hidden" name="scores_thinkpadE16" id="nf_thinkpadE16" />
-    <input type="hidden" name="scores_v15" id="nf_v15" />
-    <input type="hidden" name="primaryLane" id="nf_lane" />
-    <input type="hidden" name="outcome" id="nf_outcome" />
-    <input type="hidden" name="persona" id="nf_persona" />
-    <input type="hidden" name="page" id="nf_page" />
-    <!-- UTM capture for Netlify -->
-    <input type="hidden" name="utm_source" id="utm_source" />
-    <button type="submit" id="nf_submit">submit</button>
-  </form>
+    <script>
+        // --- Data & Configuration ---
+        const questions = [
+            { 
+                id: "q1",
+                title: "За што најчесто ќе го користиш?",
+                type: "single",
+                answers: [
+                    "Факултет, Google Docs",
+                    "Филмови, музика, YouTube",
+                    "Дизајн, Photoshop, архитектура",
+                    "Програмирање",
+                    "Гејминг",
+                    "Не сум сигурен, затоа го пополнувам квизот"
+                ]
+            },
+            { id: "q2", title: "Колку често учиш/работиш на лаптоп?", type: "single", answers: ["Секој ден", "3–5 дена неделно", "Само кога имам испит/колоквиум", "Ретко"] },
+            { id: "q3", title: "Каде најчесто го користиш лаптопот?", type: "single", answers: ["Дома", "На факултет", "Во движење / кафичи", "Секаде го носам со мене"] },
+            { id: "q4", title: "Какви програми користиш?", type: "multi", answers: ["Word, Excel, PowerPoint", "Photoshop, Illustrator", "AutoCAD, Revit", "VS Code, Python, Java", "Premiere Pro, DaVinci", "Ништо тешко, само интернет"] },
+            { id: "q5", title: "Каква големина на екран ти одговара?", type: "single", answers: ["Мал и лесен (13–14”)", "Среден (15”)", "Голем екран (16–17”)"] },
+            { id: "q6", title: "Приближен буџет?", type: "single", answers: ["До 25.000 ден", "25.000–35.000 ден", "35.000–45.000 ден", "45.000+ ден", "Не сум сигурен, затоа го правам квизот"] }
+        ];
 
-<script>
-/* ====== DEFAULT CONFIG ====== */
-const DEFAULT_CFG = {
-  logo: { url: "https://cdn.worldvectorlogo.com/logos/lenovo-2.svg", data: "" },
-  hero: {
-    title: "Кој Леново лаптоп е идеален  за твојот факултет",
-    sub: "Стотици студенти веќе го најдоа идеалниот лаптоп за нив преку овој квиз. Одговори на 6 прашања и најди го и ти.",
-    cta: "ПОЧНИ",
-    image: { url: "https://static.beebom.com/wp-content/uploads/2018/04/lenovi-thinkpad-x1.jpg?w=750&quality=75", data: "" }
-  },
-  finish: { cta: "Продолжи кон препорачан модел" },
-  productUrls: {
-    legion: "https://kupilenovo.mk/categories/_laptops/83F500DJRM-Legion-Legion-Pro-7-16IAX10H-Eclipse-Black---Ultra-9-275HX,-64GB,-2TB-NVMe,-RTX-5080-16GB,-16-,-DOS",
-    thinkbook14: "https://kupilenovo.mk/categories/_laptops/21MR004HRM-Lenovo-ThinkBook-14-G7-IML-Arctic-Grey---_
+        // Google Sheets target URL
+        const googleSheetUrl = "https://script.google.com/macros/s/AKfycbwRb0f_Z2MJQw4erCKqsAF72xpO6CPgOrkvPHglTiWTiUcTaV68aZ-M_ZsyqqD4Ykd2/exec";
+
+        // --- Logic Engine ---
+        const quizApp = {
+            currentStepIndex: 0,
+            results: {},
+            
+            elements: {
+                startScreen: document.getElementById('start-screen'),
+                questionScreen: document.getElementById('question-screen'),
+                questionText: document.getElementById('question-text'),
+                questionNumber: document.getElementById('question-number'),
+                optionsGrid: document.getElementById('options-grid'),
+                progressBar: document.getElementById('progress-bar'),
+                progressContainer: document.getElementById('progress-container'),
+                nextBtn: document.getElementById('next-btn'),
+                selectionInfo: document.getElementById('selection-info'),
+                leadFormScreen: document.getElementById('lead-form-screen'),
+                confirmationScreen: document.getElementById('confirmation-screen'),
+                submitBtn: document.getElementById('submitBtn'),
+                formError: document.getElementById('form-error'),
+                contactName: document.getElementById('contact_name'),
+                contactPhone: document.getElementById('contact_phone'),
+                contactEmail: document.getElementById('contact_email'),
+                contactFaculty: document.getElementById('contact_faculty'),
+                consentCheckbox: document.getElementById('q_consent'),
+            },
+
+            showScreen(screenKey) {
+                const screenIds = [
+                    'start-screen',
+                    'question-screen',
+                    'lead-form-screen',
+                    'confirmation-screen'
+                ];
+
+                screenIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (!el) return;
+                    el.classList.add('hidden');
+                    el.classList.remove('fade-in', 'flex', 'flex-col');
+                });
+
+                const screen = this.elements[screenKey];
+                if (screen) {
+                    screen.classList.remove('hidden');
+                    screen.classList.add('fade-in', 'flex', 'flex-col');
+                }
+            },
+
+            start() {
+                this.currentStepIndex = 0;
+                this.results = {};
+                this.showScreen('questionScreen');
+                this.renderQuestion();
+            },
+
+            renderQuestion() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ) return;
+
+                this.elements.questionNumber.textContent = `${this.currentStepIndex + 1}/${questions.length}`;
+                this.elements.questionText.textContent = currentQ.title;
+
+                const progress = ((this.currentStepIndex) / questions.length) * 100;
+                this.elements.progressBar.style.width = `${progress}%`;
+
+                if (currentQ.type === 'multi') {
+                    this.elements.selectionInfo.textContent = "(Можеш да избереш повеќе одговори)";
+                    this.elements.selectionInfo.classList.remove('hidden');
+                } else {
+                    this.elements.selectionInfo.classList.add('hidden');
+                }
+
+                this.elements.optionsGrid.innerHTML = '';
+                
+                if (this.results[currentQ.id] === undefined) {
+                    this.results[currentQ.id] = currentQ.type === 'multi' ? [] : null;
+                }
+
+                currentQ.answers.forEach((answerText) => {
+                    const isSelected = (currentQ.type === 'multi' && this.results[currentQ.id].includes(answerText)) || 
+                                       (currentQ.type === 'single' && this.results[currentQ.id] === answerText);
+                    
+                    const iconBaseClass = currentQ.type === 'single' ? 'fa-circle' : 'fa-square';
+                    const iconSelectedClass = currentQ.type === 'single' ? 'fa-circle-dot' : 'fa-square-check';
+
+                    const selectedClass = isSelected ? 'selected' : '';
+                    const iconSolidOrRegular = isSelected ? 'fa-solid' : 'fa-regular';
+                    const iconTypeClass = isSelected ? iconSelectedClass : iconBaseClass;
+
+                    const card = document.createElement('div');
+                    card.className = `option-card p-4 rounded-lg cursor-pointer flex items-start gap-4 ${selectedClass}`;
+                    card.setAttribute('data-answer', answerText);
+                    card.onclick = () => this.toggleSelection(currentQ.id, answerText, currentQ.type);
+
+                    card.innerHTML = `
+                        <div class="icon-box w-6 h-6 flex items-center justify-center rounded-full flex-shrink-0 mt-1">
+                            <i class="${iconSolidOrRegular} ${iconTypeClass} text-sm"></i>
+                        </div>
+                        <span class="text-sm font-medium text-gray-700 leading-relaxed">${answerText}</span>
+                    `;
+                    this.elements.optionsGrid.appendChild(card);
+                });
+
+                this.updateNextButtonState();
+            },
+
+            toggleSelection(qId, answerText, type) {
+                let selections = this.results[qId];
+
+                if (type === 'single') {
+                    selections = (selections === answerText) ? null : answerText;
+                } else if (type === 'multi') {
+                    selections = selections || [];
+                    const index = selections.indexOf(answerText);
+                    if (index > -1) {
+                        selections.splice(index, 1);
+                    } else {
+                        selections.push(answerText);
+                    }
+                }
+
+                this.results[qId] = selections;
+                this.updateOptionsUI(qId);
+                this.updateNextButtonState();
+            },
+
+            updateOptionsUI(qId) {
+                const currentQ = questions[this.currentStepIndex];
+                const selections = currentQ.type === 'multi'
+                    ? (this.results[qId] || [])
+                    : (this.results[qId] ? [this.results[qId]] : []);
+                
+                const optionCards = this.elements.optionsGrid.querySelectorAll('.option-card');
+                
+                optionCards.forEach(card => {
+                    const answer = card.getAttribute('data-answer');
+                    const iconEl = card.querySelector('.icon-box i');
+                    
+                    const isSelected = selections.includes(answer);
+                    const iconBaseClass = currentQ.type === 'single' ? 'fa-circle' : 'fa-square';
+                    const iconSelectedClass = currentQ.type === 'single' ? 'fa-circle-dot' : 'fa-square-check';
+
+                    iconEl.classList.remove('fa-regular', 'fa-solid', iconBaseClass, iconSelectedClass);
+                    
+                    if (isSelected) {
+                        card.classList.add('selected');
+                        iconEl.classList.add('fa-solid', iconSelectedClass);
+                    } else {
+                        card.classList.remove('selected');
+                        iconEl.classList.add('fa-regular', iconBaseClass);
+                    }
+                });
+            },
+
+            updateNextButtonState() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ) {
+                    this.elements.nextBtn.classList.add('btn-disabled');
+                    this.elements.nextBtn.disabled = true;
+                    return;
+                }
+
+                let isAnswered;
+                const result = this.results[currentQ.id];
+                if (currentQ.type === 'multi') {
+                    isAnswered = Array.isArray(result) && result.length > 0;
+                } else {
+                    isAnswered = result !== null && result !== undefined;
+                }
+                
+                if (isAnswered) {
+                    this.elements.nextBtn.classList.remove('btn-disabled');
+                    this.elements.nextBtn.disabled = false;
+                } else {
+                    this.elements.nextBtn.classList.add('btn-disabled');
+                    this.elements.nextBtn.disabled = true;
+                }
+            },
+
+            nextQuestion() {
+                const currentQ = questions[this.currentStepIndex];
+                if (!currentQ || this.elements.nextBtn.disabled) return;
+
+                this.currentStepIndex++;
+
+                const progress = ((this.currentStepIndex) / questions.length) * 100;
+                this.elements.progressBar.style.width = `${progress}%`;
+
+                if (this.currentStepIndex < questions.length) {
+                    this.renderQuestion();
+                } else {
+                    this.showScreen('leadFormScreen');
+                }
+            },
+
+            getUtmSource() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('utm_source') || 'direct';
+            },
+
+            validateForm() {
+                const { contactName, contactPhone, contactEmail, consentCheckbox, formError } = this.elements;
+                let errors = [];
+
+                if (contactName.value.trim().length < 3) errors.push("Внесете полно Име и Презиме.");
+                const phoneRegex = /^\+?(\d[\d\s-]{7,}\d)$/; 
+                if (!phoneRegex.test(contactPhone.value.trim())) errors.push("Внесете валиден Телефонски број (минимум 8 цифри).");
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(contactEmail.value.trim())) errors.push("Внесете валидна Email адреса.");
+                if (!consentCheckbox.checked) errors.push("Мора да се согласите за да ве контактираме.");
+
+                if (errors.length > 0) {
+                    formError.innerHTML = errors.join('<br>');
+                    formError.classList.remove('hidden');
+                    return false;
+                } else {
+                    formError.classList.add('hidden');
+                    return true;
+                }
+            },
+
+            async submitForm() {
+                if (!this.validateForm()) return;
+
+                this.elements.submitBtn.disabled = true;
+                this.elements.submitBtn.textContent = 'Испраќање...';
+
+                const { contactName, contactPhone, contactEmail, contactFaculty } = this.elements;
+
+                let quizSummary = {};
+                questions.forEach(q => {
+                    const result = this.results[q.id];
+                    let value;
+
+                    if (q.type === 'multi' && Array.isArray(result)) {
+                        value = result.join('; ');
+                    } else if (result !== null && result !== undefined) {
+                        value = result;
+                    } else {
+                        value = 'N/A';
+                    }
+
+                    quizSummary[q.id] = value;
+                });
+
+                const formData = {
+                    Timestamp: new Date().toISOString(),
+                    Name: contactName.value.trim(),
+                    Phone: contactPhone.value.trim(),
+                    Email: contactEmail.value.trim(),
+                    Faculty: contactFaculty.value.trim() || 'N/A',
+                    ...quizSummary,
+                    UTM_Source: this.getUtmSource()
+                };
+
+                const fetchWithRetry = async (url, options, retries = 3) => {
+                    for (let i = 0; i < retries; i++) {
+                        try {
+                            const response = await fetch(url, options);
+                            return response;
+                        } catch (error) {
+                            if (i < retries - 1) {
+                                const delay = Math.pow(2, i) * 1000;
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                            } else {
+                                throw error;
+                            }
+                        }
+                    }
+                };
+
+                try {
+                    await fetchWithRetry(googleSheetUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(formData).toString()
+                    });
+
+                    this.showScreen('confirmationScreen');
+
+                } catch (error) {
+                    console.error("Submission failed (even after retries):", error);
+                    this.showScreen('confirmationScreen');
+                } finally {
+                    this.elements.submitBtn.disabled = false;
+                    this.elements.submitBtn.textContent = '👉 ИЗБЕРИ МИ ЛАПТОП';
+                }
+            },
+
+            init() {
+                const utmSource = this.getUtmSource();
+                document.getElementById('utm_source_input').value = utmSource;
+                this.showScreen('startScreen');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            quizApp.init();
+        });
+    </script>
+</body>
+</html>
